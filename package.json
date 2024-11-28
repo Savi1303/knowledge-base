@@ -6,21 +6,35 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
+    "tailwind": "npx tailwindcss -i ./src/app/globals.css -o ./src/app/style.css --watch",
     "lint": "next lint"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "@supabase/supabase-js": "^2.46.1",
+    "@vapi-ai/server-sdk": "^0.1.0",
+    "@vapi-ai/web": "^2.1.7",
+    "axios": "^1.7.8",
+    "cheerio": "^1.0.0",
+    "docx": "^9.0.3",
+    "formidable": "^3.5.2",
+    "next": "15.0.3",
+    "openai": "^4.73.0",
+    "pdf2json": "^3.1.4",
+    "puppeteer": "^23.9.0",
+    "puppeteer-core": "^23.9.0",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
-    "next": "15.0.3"
+    "retell-sdk": "^4.9.0"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.3",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "15.0.3"
+    "typescript": "^5"
   }
 }

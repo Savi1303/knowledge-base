@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/pages/function.js", "src/app/pages/vapi/Config/anon.jsx", "src/app/pages/vapi/vapiUpload.jsx", "src/pages/vapi/vapi-call.tsx", "src/pages/openai/Config/openai.jsx", "src/pages/openai/page.tsx"],
   "exclude": ["node_modules"]
 }
