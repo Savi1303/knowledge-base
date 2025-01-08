@@ -1,27 +1,30 @@
 "use client";
 // import VapiForm from '../pages/page';
-import Vapi from '../pages/vapi/vapiUpload';
-import VapiCall from '../pages/vapi/vapi-call';
+import Vapi from '../pages/vapi/vapiUpload';  
+import WebCall from '../pages/vapi/vapi-call';
+import VapiCreate from '../pages/vapi/get-called/page';
 import Claude from '../pages/claude/page';
 import Retell from '../pages/retell/page';
 import OpenAI from '../pages/openai/whisper';
 import OpenURL from '../pages/openai/page';
-// import Pup from '../pages/cheerio/page';
-// import Anon from '../pages/supabase/anon';
+import Pup from '../pages/cheerio/page';
+import Anon from '../pages/supabase/anon';
+import Endpoint from '../pages/Endpoints/page';
 import Homer from '../pages/supabase/home';
 
 export default function Home() {
   return (
     <div className="p-6 bg-black min-h-screen">
       <h1 className="text-4xl font-bold mb-6 text-white-800 text-center">AI Knowledge Base</h1>
-      
+
       <div className="mb-4">
         <h2 className="text-2xl font-semibold mb-2 text-white-700">URL</h2>
         <div>
           <button className="bg-blue-600 text-white px-4 py-2 rounded" onClick={() => toggleDropdown('home')}>OpenAI URL</button>
           <div id="home" className="mt-2 hidden">
+          <Endpoint />
             <OpenURL />
-            {/* <Anon /> */}
+            <Pup />
           </div>
         </div>
       </div>
@@ -33,7 +36,9 @@ export default function Home() {
           <button className="bg-blue-600 text-white px-4 py-2 rounded" onClick={() => toggleDropdown('vapi')}>Vapi</button>
           <div id="vapi" className="mt-2 hidden">
             <Vapi />
-            <VapiCall />
+            <WebCall />
+            <VapiCreate />
+
           </div>
         </div>
         <div>
@@ -65,9 +70,9 @@ export default function Home() {
       <div className="mb-4">
         <h2 className="text-2xl font-semibold mb-2 text-white-700">Supabase KB</h2>
         <div>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded" onClick={() => toggleDropdown('home')}>Home</button>
-          <div id="home" className="mt-2 hidden">
-            <Homer />
+          <button className="bg-blue-600 text-white px-4 py-2 rounded" onClick={() => toggleDropdown('homer')}>Home</button>
+          <div id="homer" className="mt-2 hidden">
+            {/* <Homer /> */}
             {/* <Anon /> */}
           </div>
         </div>

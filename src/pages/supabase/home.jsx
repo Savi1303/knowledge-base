@@ -14,7 +14,7 @@ const Home = () => {
         async function fetchPosts() {
             const { data } = await supabase.from("Knowledge_base").select()
             setPosts(data)
-            // console.log("data:", data)
+            // console.log("data:", data)   
         }
     fetchPosts();
 
@@ -31,7 +31,7 @@ const Home = () => {
     }
     
     return (
-        <div className="text-center">
+        <div className="text-center text-black">
             <input
                 className="rounded-xl p-2 border-2 border-slate-900 ml-2"
                 placeholder="File Name"
@@ -46,13 +46,13 @@ const Home = () => {
             />
                       <input
               className="p-2 rounded-xl border-solid border-2 border-slate-900 mx-2"
-                placeholder="Vapi/Retell Id"
+                placeholder="Vapi Id"
                 value={vapi_id}
                 onChange={e => setPost({ ...file, vapi_id: e.target.value })}
             />
                       <input
               className="p-2 rounded-xl border-solid border-2 border-slate-900 mx-2"
-                placeholder="OpenAI/ClaudeAI Id"
+                placeholder="OpenAI Id"
                 value={openai_id}
                 onChange={e => setPost({ ...file, openai_id: e.target.value })}
             />

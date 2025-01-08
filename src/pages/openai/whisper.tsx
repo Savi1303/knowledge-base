@@ -28,43 +28,7 @@ const App = () => {
   };
 
 
-
-  // Handle form submission (file upload)
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!File) {
-      alert("Please select an audio/video file.");
-      return;
-    }
-
-    setLoading(true);
-    setTranscription(null);
-
-    
-
-    // Create a FormData object to send the file to the backend (assuming React frontend)
-    const formData = new FormData();
-    formData.append("file", File);
-
-    try {
-      // Using OpenAI's API to create the transcription
-      const transcriptionResult = await openai.audio.transcriptions.create({
-        file: File, // Directly pass the audio file
-        model: "whisper-1",
-      });
-
-      setTranscription(transcriptionResult.text);
-      await createPost(transcriptionResult.text);
-    } catch (error) {
-      console.error("Error during transcription:", error);
-      setTranscription("An error occurred while processing the audio.");
-    } finally {
-      setLoading(false);
-    }
-  
-};
-
-async function createPost(transcriptionText: string) {
+  async function createPost(transcriptionText: string) {
     await supabase
     .from("Knowledge_base")
     .insert([
@@ -94,6 +58,44 @@ async function createPost(transcriptionText: string) {
     URL.revokeObjectURL(url);
 
   };
+
+
+  // Handle form submission (file upload)
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!File) {
+      alert("Please select an audio/video file.");
+      return;
+    }
+
+    setLoading(true);
+    setTranscription(null);
+
+    
+
+    // Create a FormData object to send the file to the backend (assuming React frontend)
+    const formData = new FormData();
+    formData.append("file", File);
+
+    try {
+      // Using OpenAI's API to create the transcription
+      const transcriptionResult = await openai.audio.transcriptions.create({
+        file: File, // Directly pass the audio file
+        model: "whisper-1",
+      });
+
+      setTranscription(transcriptionResult.text);
+      await createPost(transcriptionResult.text);
+      downloadTranscription();
+    } catch (error) {
+      console.error("Error during transcription:", error);
+      setTranscription("An error occurred while processing the audio.");
+    } finally {
+      setLoading(false);
+    }
+  
+};
+
 
   
 

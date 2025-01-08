@@ -37,7 +37,6 @@ export default function UploadPage() {
     formData.append("file", file);
     const token = process.env.NEXT_PUBLIC_SAVI_VAPI_KEY;
   
-    console.log(token)
 
     try {
       const res = await fetch("https://api.vapi.ai/file", {

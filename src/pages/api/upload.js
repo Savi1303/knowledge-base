@@ -15,3 +15,5 @@ export async function uploadFile(file) {
     const data = await response.json();
     return `<div>File uploaded successfully: ${data.url}</div>`;
 }
+
+
